@@ -55,10 +55,7 @@ const loop = () => {
   }
   circles.push({ x, y });
 
-  let i = 0;
   for (let circle of circles) {
-    console.log(i);
-    i += 1;
     drawGradient(ctx, circle.x, circle.y);
   }
   drawGradient(ctx, x, y);
