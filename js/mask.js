@@ -27,7 +27,7 @@ document.addEventListener("mousemove", event => {
 //webgazer.begin();
 
 const drawGradient = (ctx, x, y) => {
-  const radius = 20;
+  const radius = maskCanvas.height / 5;
   const gradient = ctx.createRadialGradient(x, y, 1, x, y, radius);
   gradient.addColorStop(0, '#fff2');
   gradient.addColorStop(0.3, '#fff1');
@@ -63,8 +63,8 @@ const loop = () => {
   setTimeout(loop, 50);
 }
 
-export const startLoop = loop();
+export const startLoop = loop;
 export const getMask = () => {
-  //todo
+  return maskCanvas;
 };
 
