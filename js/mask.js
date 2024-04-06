@@ -5,7 +5,7 @@ const rect = maskCanvas.getBoundingClientRect();
 
 let lookX = 0, lookY = 0;
 
-/*
+//*
 webgazer.setGazeListener((data, elapsedTime) => {
   console.log(data); //elapsed time is based on time since begin was called
   if (data == null) {
@@ -17,22 +17,22 @@ webgazer.setGazeListener((data, elapsedTime) => {
   //dot.style.left = `${data.x}px`;
   ctx.fillRect(0, 0, maskCanvas.width, maskCanvas.height);
 }).begin();
-*/
+// */
 
+/*
 document.addEventListener("mousemove", event => {
   lookX = event.pageX ?? 0;
   lookY = event.pageY ?? 0;
-})
+})*/
 
 //webgazer.begin();
 
 const drawGradient = (ctx, x, y) => {
   const radius = maskCanvas.height / 5;
-  console.log(x, y);
   const gradient = ctx.createRadialGradient(x, y, 1, x, y, radius);
-  gradient.addColorStop(0, '#fff2');
-  gradient.addColorStop(0.3, '#fff1');
-  gradient.addColorStop(1, '#fff0');
+  gradient.addColorStop(0, '#ffffff1a');
+  gradient.addColorStop(0.3, '#ffffff10');
+  gradient.addColorStop(1, '#ffffff00');
 
   ctx.fillStyle = gradient;
   ctx.fillRect(x - radius, y - radius, radius * 2, radius * 2);

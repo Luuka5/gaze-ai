@@ -30,11 +30,11 @@
 #composition {
 }
 #maskCanvas {
-   display: hidden;
+  opacity: 0;
 }
 #aiImage{
-   display: hidden;
 }
+
 
 
 

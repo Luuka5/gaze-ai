@@ -17,15 +17,13 @@ const fetchLoop = async () => {
   const ctx = canvas.getContext("2d");
   //ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.globalCompositeOperation = 'source-over';
-  ctx.drawImage(testImage, 0, 0);
+  if (prevImage != null) {
+    ctx.drawImage(prevImage, 0, 0);
+  }
 
   ctx.globalCompositeOperation = 'destination-atop';
   ctx.drawImage(mask, 0, 0);
 
-  if (prevImage != null) {
-    //ctx.drawImage(prevImage, 0, 0);
-  } else {
-  }
 
   const composite = canvas.toDataURL()//.split(';base64,')[1];;
 
@@ -39,6 +37,7 @@ const fetchLoop = async () => {
     image = await generateImage(composite);
   } catch (e) {
     console.error(e);
+    image = testImage;
   }
 
   setTimeout(fetchLoop, 3000);
