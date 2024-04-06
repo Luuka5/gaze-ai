@@ -11,9 +11,9 @@ export async function generateImage(image) {
       body: JSON.stringify({
         "workflow_values":
         {
-          //"negative_prompt": "blurry, text, low quality",
-          //"positive_prompt": "An igloo on a snowy day, 4k, hd",
-          "image": image,
+          "negative_prompt": "blurry, text, low quality",
+          "positive_prompt": "An igloo on a snowy day, 4k, hd",
+          "image": "https://5bc2-2001-708-150-10-00-347e.ngrok-free.app/image.png",
         },
       }),
     }

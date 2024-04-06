@@ -27,13 +27,13 @@ const fetchLoop = async () => {
   ctx.drawImage(mask, 0, 0);
 
 
-  const composite = canvas.toDataURL()//.split(';base64,')[1];;
+  const composite = canvas.toDataURL();//.split(';base64,')[1];
 
   //console.log(composite);
-  /*await fetch("http://locahost:8888/image", {
-    method: "post",
+  await fetch("http://locahost:8888/image.png", {
+    method: "POST",
     body: composite,
-  });*/
+  });
 
   try {
     image = await generateImage(composite);
