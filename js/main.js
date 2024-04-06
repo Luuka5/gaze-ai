@@ -8,6 +8,8 @@ startLoop();
 let image = null;
 const canvas = document.getElementById("composition");
 
+const testImage = document.getElementById("testImage");
+
 const fetchLoop = async () => {
   const prevImage = image;
   const mask = getMask();
@@ -15,14 +17,17 @@ const fetchLoop = async () => {
   const ctx = canvas.getContext("2d");
   //ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.globalCompositeOperation = 'source-over';
+  ctx.drawImage(testImage, 0, 0);
+
+  ctx.globalCompositeOperation = 'destination-atop';
   ctx.drawImage(mask, 0, 0);
 
-  ctx.globalCompositeOperation = 'destination-out';
   if (prevImage != null) {
-    ctx.drawImage(prevImage, 0, 0);
+    //ctx.drawImage(prevImage, 0, 0);
+  } else {
   }
 
-  const composite = canvas.toDataURL("image/png").split(';base64,')[1];;
+  const composite = canvas.toDataURL()//.split(';base64,')[1];;
 
   //console.log(composite);
   /*await fetch("http://locahost:8888/image", {

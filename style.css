@@ -21,6 +21,20 @@
   border: 2px solid black;
 }
 
+#testImage {
+ position: fixed;
+  bottom: 0;
+  height: 10rem;
+}
+
+#composition {
+}
+#maskCanvas {
+   display: hidden;
+}
+#aiImage{
+   display: hidden;
+}
 
 
 

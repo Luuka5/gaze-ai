@@ -11,10 +11,10 @@ export async function generateImage(image) {
       body: JSON.stringify({
         "workflow_values":
         {
-          "negative_prompt": "blurry, text, low quality",
-          "positive_prompt": "An igloo on a snowy day, 4k, hd",
+          //"negative_prompt": "blurry, text, low quality",
+          //"positive_prompt": "An igloo on a snowy day, 4k, hd",
+          "image": image,
         },
-        image,
       }),
     }
   );

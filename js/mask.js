@@ -20,14 +20,15 @@ webgazer.setGazeListener((data, elapsedTime) => {
 */
 
 document.addEventListener("mousemove", event => {
-  lookX = event.pageX;
-  lookY = event.pageY;
+  lookX = event.pageX ?? 0;
+  lookY = event.pageY ?? 0;
 })
 
 //webgazer.begin();
 
 const drawGradient = (ctx, x, y) => {
   const radius = maskCanvas.height / 5;
+  console.log(x, y);
   const gradient = ctx.createRadialGradient(x, y, 1, x, y, radius);
   gradient.addColorStop(0, '#fff2');
   gradient.addColorStop(0.3, '#fff1');
