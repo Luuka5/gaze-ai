@@ -19,6 +19,8 @@ const fetchLoop = async () => {
   ctx.globalCompositeOperation = 'source-over';
   if (prevImage != null) {
     ctx.drawImage(prevImage, 0, 0);
+  } else {
+    ctx.drawImage(testImage, 0, 0);
   }
 
   ctx.globalCompositeOperation = 'destination-atop';
@@ -40,7 +42,7 @@ const fetchLoop = async () => {
     image = testImage;
   }
 
-  setTimeout(fetchLoop, 3000);
+  setTimeout(fetchLoop, 500);
 }
 
 fetchLoop();

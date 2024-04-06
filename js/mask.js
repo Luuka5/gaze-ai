@@ -7,15 +7,12 @@ let lookX = 0, lookY = 0;
 
 //*
 webgazer.setGazeListener((data, elapsedTime) => {
-  console.log(data); //elapsed time is based on time since begin was called
   if (data == null) {
     return;
   }
-  x = data.x;
-  y = data.y;
-  //dot.style.top = `${data.y}px`;
-  //dot.style.left = `${data.x}px`;
-  ctx.fillRect(0, 0, maskCanvas.width, maskCanvas.height);
+  lookX = data.x;
+  lookY = data.y;
+  //ctx.fillRect(0, 0, maskCanvas.width, maskCanvas.height);
 }).begin();
 // */
 
@@ -23,15 +20,17 @@ webgazer.setGazeListener((data, elapsedTime) => {
 document.addEventListener("mousemove", event => {
   lookX = event.pageX ?? 0;
   lookY = event.pageY ?? 0;
-})*/
+})
 
-//webgazer.begin();
+// */
+
+webgazer.begin();
 
 const drawGradient = (ctx, x, y) => {
   const radius = maskCanvas.height / 5;
   const gradient = ctx.createRadialGradient(x, y, 1, x, y, radius);
-  gradient.addColorStop(0, '#ffffff1a');
-  gradient.addColorStop(0.3, '#ffffff10');
+  gradient.addColorStop(0, '#ffffff30');
+  gradient.addColorStop(0.3, '#ffffff20');
   gradient.addColorStop(1, '#ffffff00');
 
   ctx.fillStyle = gradient;
@@ -51,7 +50,7 @@ const loop = () => {
   const x = (lookX - rect.left) * maskCanvas.width / rect.width;
   const y = (lookY - rect.top) * maskCanvas.height / rect.height;
 
-  if (circles.length > 100) {
+  if (circles.length > 30) {
     circles.shift();
   }
   circles.push({ x, y });
@@ -61,7 +60,7 @@ const loop = () => {
   }
   drawGradient(ctx, x, y);
 
-  setTimeout(loop, 50);
+  setTimeout(loop, 10);
 }
 
 export const startLoop = loop;

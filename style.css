@@ -2,7 +2,7 @@
   position: fixed;
   width: 90vw;
   height: 90vh;
-  margin: 5vw 5vh
+  margin: 5vw 5vh;
 }
 
 #dot {
@@ -16,7 +16,7 @@
 .img {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   height: 100%;
   border: 2px solid black;
 }
@@ -30,9 +30,10 @@
 #composition {
 }
 #maskCanvas {
-  opacity: 0;
+  opacity: 10%;
 }
 #aiImage{
+  opacity: 0;
 }
 
 
